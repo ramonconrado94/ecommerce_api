@@ -20,7 +20,11 @@ class OrderSchema extends Schema {
         'finished',
       ])
 
-      table.foreing('user_id').reference('id').inTable('users').onDelete('cascade')
+      table
+        .foreing('user_id')
+        .reference('id')
+        .inTable('users')
+        .onDelete('cascade')
       table.timestamps()
     })
   }

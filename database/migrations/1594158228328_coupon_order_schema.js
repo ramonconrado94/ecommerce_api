@@ -17,13 +17,13 @@ class CouponOrderSchema extends Schema {
       table.timestamps()
 
       table
-        .foreing('coupon_id')
+        .foreign('coupon_id')
         .references('id')
         .inTable('coupons')
         .onDelete('cascade')
 
       table
-        .foreing('order_id')
+        .foreign('order_id')
         .references('id')
         .inTable('orders')
         .onDelete('cascade')

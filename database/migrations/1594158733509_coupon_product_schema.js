@@ -12,16 +12,14 @@ class CouponProductSchema extends Schema {
 
       table.integer('product_id').unsigned()
 
-      table.timestamps()
-
       table
-        .foreing('coupon_id')
+        .foreign('coupon_id')
         .references('id')
         .inTable('coupons')
         .onDelete('cascade')
 
       table
-        .foreing('product_id')
+        .foreign('product_id')
         .references('id')
         .inTable('products')
         .onDelete('cascade')

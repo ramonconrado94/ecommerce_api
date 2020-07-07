@@ -30,7 +30,7 @@ class ProductSchema extends Schema {
 
       table.integer('image_id').unsigned()
 
-      table.integer('product_id').unsigend()
+      table.integer('product_id').unsigned()
 
       table
         .foreign('image_id')
@@ -48,9 +48,9 @@ class ProductSchema extends Schema {
     this.create('category_product', table => {
       table.increments()
 
-      table.integer('product_id').unsigend()
+      table.integer('product_id').unsigned()
 
-      table.integer('category_id').unsigend()
+      table.integer('category_id').unsigned()
 
       table
         .foreign('product_id')

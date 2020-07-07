@@ -23,7 +23,7 @@ class OrderItemSchema extends Schema {
         .onDelete('cascade')
 
       table
-        .foreing('order_id')
+        .foreign('order_id')
         .references('id')
         .inTable('orders')
         .onDelete('cascade')

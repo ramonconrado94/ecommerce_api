@@ -5,7 +5,7 @@ const Schema = use('Schema')
 
 class ProductSchema extends Schema {
   up() {
-    this.create('products', (table) => {
+    this.create('products', table => {
       table.increments()
 
       table.string('name', 200)
@@ -18,7 +18,11 @@ class ProductSchema extends Schema {
 
       table.timestamps()
 
-      table.foreign('image_id').references('id').inTable('images').onDelete('cascade')
+      table
+        .foreign('image_id')
+        .references('id')
+        .inTable('images')
+        .onDelete('cascade')
     })
 
     this.create('image_product', table => {
@@ -28,29 +32,45 @@ class ProductSchema extends Schema {
 
       table.integer('product_id').unsigend()
 
-      table.foreign('image_id').references('id').inTable('images').onDelete('cascade')
+      table
+        .foreign('image_id')
+        .references('id')
+        .inTable('images')
+        .onDelete('cascade')
 
-      table.foreign('product_id').references('id').inTable('products').onDelete('cascade')
+      table
+        .foreign('product_id')
+        .references('id')
+        .inTable('products')
+        .onDelete('cascade')
     })
 
     this.create('category_product', table => {
       table.increments()
 
       table.integer('product_id').unsigend()
-      
+
       table.integer('category_id').unsigend()
 
-      table.foreign('product_id').references('id').inTable('products').onDelete('cascade')
+      table
+        .foreign('product_id')
+        .references('id')
+        .inTable('products')
+        .onDelete('cascade')
 
-      table.foreign('category_id').references('id').inTable('categories').onDelete('cascade')
+      table
+        .foreign('category_id')
+        .references('id')
+        .inTable('categories')
+        .onDelete('cascade')
     })
   }
 
   down() {
     this.drop('category_product')
-    
+
     this.drop('image_product')
-    
+
     this.drop('products')
   }
 }

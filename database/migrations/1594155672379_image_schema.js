@@ -4,23 +4,23 @@
 const Schema = use('Schema')
 
 class ImageSchema extends Schema {
-  up () {
-    this.create('images', (table) => {
+  up() {
+    this.create('images', table => {
       table.increments()
-      
+
       table.string('path', 255)
-      
+
       table.integer('size').unsigend()
-      
+
       table.string('original_name')
 
       table.string('extension', 10)
-            
+
       table.timestamps()
     })
   }
 
-  down () {
+  down() {
     this.drop('images')
   }
 }
